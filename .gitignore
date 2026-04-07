@@ -1,0 +1,42 @@
+# Environment & secrets
+.env
+credentials.json
+token.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Vector index (regenerated from docs on first run)
+chroma_db/
+
+# Source documents (may contain proprietary content — add your own)
+docs/
+
+# Temporary files
+.tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Internal tooling
+skills/
+
+# Claude Code local settings
+.claude/

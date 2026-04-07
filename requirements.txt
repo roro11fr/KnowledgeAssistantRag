@@ -1,0 +1,8 @@
+openai
+google-genai
+chromadb
+pymupdf
+python-docx
+python-dotenv
+fastapi
+uvicorn
