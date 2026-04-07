@@ -6,6 +6,104 @@ Built on the **WAT framework** (Workflows → Agents → Tools): deterministic P
 
 ---
 
+## Use Cases
+
+The screenshots below demonstrate the system running against a vacuum cleaner product manual (BlueStone VCB-8037). The same pipeline works with any PDF or DOCX documentation.
+
+---
+
+### 1. How-to query — HEPA filter cleaning
+
+> "How do I clean the HEPA filter?"
+
+**High confidence** · Intent: `howto`
+
+The assistant returns numbered steps with inline page citations. Each `(page N)` link opens the source PDF directly at that page.
+
+![HEPA filter cleaning steps](rag_use_cases_screenshots/01_homepage_query.png)
+
+---
+
+### 2. Troubleshooting — weak suction
+
+> "Why is suction power weak?"
+
+**Medium confidence** · Intent: `troubleshooting`
+
+The answer is structured into three labelled sections: **Problem**, **Possible causes**, and **Recommended actions** — each cause and action linked to its source page.
+
+![Suction power troubleshooting](rag_use_cases_screenshots/02_hepa_filter_answer.png)
+
+---
+
+### 3. Document sections panel
+
+Every answer exposes the raw document chunks used to generate it. Each card shows the source file, page number, and a text excerpt. "Show more" expands the full excerpt. Clicking the page badge opens the PDF at the exact page.
+
+![Document sections used](rag_use_cases_screenshots/03_suction_problem_analysis.png)
+
+---
+
+### 4. How-to query — emptying the dust container
+
+> "How do I empty the dust container?"
+
+**High confidence** · Intent: `howto`
+
+Step-by-step procedure extracted directly from the manual, with the referenced document sections shown below the answer.
+
+![Dust container emptying steps](rag_use_cases_screenshots/04_document_sections_used.png)
+
+---
+
+### 5. How-to query — connecting the hose
+
+> "How do I connect the hose?"
+
+**Medium confidence** · Intent: `howto`
+
+Short two-step procedure with page references. Medium confidence indicates partial overlap between question and indexed content.
+
+![Hose connection answer](rag_use_cases_screenshots/05_dust_container_steps.png)
+
+---
+
+### 6. Troubleshooting — power cord not rewinding
+
+> "What should I do if the power cord does not rewind completely?"
+
+**Medium confidence** · Intent: `troubleshooting`
+
+The assistant identifies the possible mechanical cause and provides escalation guidance (rewind button → service centre), both cited to specific pages.
+
+![Power cord rewind issue](rag_use_cases_screenshots/06_hose_connection_answer.png)
+
+---
+
+### 7. Troubleshooting — dust container won't close
+
+> "Why can't the dust container be closed?"
+
+**Medium confidence** · Intent: `troubleshooting`
+
+Structured diagnosis: container misaligned or filter needs cleaning, with specific corrective actions and page links.
+
+![Dust container won't close](rag_use_cases_screenshots/07_power_cord_issue.png)
+
+---
+
+### 8. Out-of-scope query — graceful fallback
+
+> "Why Ronaldo is better than Messi?"
+
+**Limited match** · Intent: `troubleshooting`
+
+When the question has no relation to the indexed documentation, the assistant explicitly states the documentation does not cover it — instead of hallucinating an answer. The confidence badge shows "↓ Limited match" and a soft-match notice is displayed above the sources.
+
+![Out of scope query fallback](rag_use_cases_screenshots/08_out_of_scope_query.png)
+
+---
+
 ## Architecture Overview
 
 ```
